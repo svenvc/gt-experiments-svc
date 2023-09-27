@@ -103,7 +103,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:03:36.752459+02:00"
+						"dateAndTimeString" : "2023-09-27T11:32:01.160448+02:00"
 					}
 				},
 				"uid" : {
@@ -113,7 +113,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "There is a public data set published by the European Central Band containing the official historic data on the position of the Euro against other currencies."
+				"string" : "There is a public data set published by the European Central Bank containing the official historic data on the position of the Euro against other currencies."
 			},
 			{
 				"__type" : "textSnippet",

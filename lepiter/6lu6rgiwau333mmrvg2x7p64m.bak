@@ -714,7 +714,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:36:07.982293+02:00"
+						"dateAndTimeString" : "2023-09-27T09:36:10.751162+02:00"
 					}
 				},
 				"uid" : {
@@ -724,7 +724,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "At the time this article was written, the answer is"
+				"string" : "At the time this article was written, the answer is 26 October 2000."
 			}
 		]
 	},
