@@ -41,10 +41,12 @@ ProjectGutenbergBook class >> dracula [
 { #category : #accessing }
 ProjectGutenbergBook class >> gtMostPopularViewFor: aView [
 	<gtClassView>
-	^ aView list
+	^ aView columnedList
 		title: 'Most popular books';
 		items: self mostPopular;
-		itemText: [ :book | book title ]
+		column: 'title' text: [ :book | book title ];
+		column: 'author' text: [ :book | book author ];
+		column: 'downloaded' text: [ :book | book hasFullText ]
 ]
 
 { #category : #'instance creation' }
@@ -68,7 +70,14 @@ ProjectGutenbergBook class >> mostPopular [
 
 { #category : #accessing }
 ProjectGutenbergBook >> author [
-	^ self metaData authors first name
+	^ self metaData authors
+		ifEmpty: [ #'n/a' ]
+		ifNotEmpty: [ :authors | authors first name ]
+]
+
+{ #category : #accessing }
+ProjectGutenbergBook >> copyright [
+	^ self metaData copyright
 ]
 
 { #category : #operations }
@@ -87,6 +96,18 @@ ProjectGutenbergBook >> fullText: anObject [
 ]
 
 { #category : #accessing }
+ProjectGutenbergBook >> gtClearFullTextAction: action [
+	<gtAction>
+	self hasFullText ifFalse: [ ^ action noAction ].
+	^ action button
+		tooltip: 'Clear the full text of this book';
+		icon: BrGlamorousVectorIcons remove;
+		action: [ :aButton |
+			self fullText: nil.
+			aButton phlow fireUpdateWish ]
+]
+
+{ #category : #accessing }
 ProjectGutenbergBook >> gtDetailsFor: aView [
 	<gtView>
 	^ aView columnedList
@@ -95,6 +116,7 @@ ProjectGutenbergBook >> gtDetailsFor: aView [
 			('id' -> self id).
 			('title' -> self title).
 			('author' -> self author).
+			('copyright' -> self copyright).
 			('size' -> (self size ifNil: [ 'n/a' ])).
 			('line count' -> (self lineCount ifNil: [ 'n/a' ])) } ];
 		column: 'Key' text: #key;
