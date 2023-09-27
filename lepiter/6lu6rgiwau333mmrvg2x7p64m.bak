@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T08:58:52.023366+02:00"
+						"dateAndTimeString" : "2023-09-27T09:18:08.421955+02:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "A NeoCSV use case."
 			},
 			{
 				"__type" : "textSnippet",
@@ -140,7 +140,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:05:19.79695+02:00"
+						"dateAndTimeString" : "2023-09-27T09:33:24.510865+02:00"
 					}
 				},
 				"uid" : {
@@ -150,7 +150,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "See https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html for more information."
+				"string" : "See <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html> for more information."
 			},
 			{
 				"__type" : "textSnippet",
@@ -177,7 +177,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:06:01.412834+02:00"
+						"dateAndTimeString" : "2023-09-27T09:33:31.789378+02:00"
 					}
 				},
 				"uid" : {
@@ -187,7 +187,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "I came across a blog post describing how to access that data, https://csvbase.com/blog/5"
+				"string" : "I came across a blog post describing how to access that data, <https://csvbase.com/blog/5>"
 			},
 			{
 				"__type" : "textSnippet",
@@ -288,7 +288,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:07:06.098982+02:00"
+						"dateAndTimeString" : "2023-09-27T09:32:55.664808+02:00"
 					}
 				},
 				"uid" : {
@@ -298,7 +298,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We need to install NeoCSV unless you already have that loaded."
+				"string" : "We need to install NeoCSV unless you already have that loaded. NeoCSV, <https://github.com/svenvc/NeoCSV> is an elegant and efficient standalone Smalltalk framework to read and write CSV converting to or from Smalltalk objects."
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -325,14 +325,85 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:07:14.467391+02:00"
+						"dateAndTimeString" : "2023-09-27T09:07:47.104439+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "68b0k7PCDQCVeH6pBweYbw=="
 				},
-				"code" : ""
+				"code" : "Metacello new\n  repository: 'github://svenvc/NeoCSV/repository';\n  baseline: 'NeoCSV';\n  load."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:09:04.213464+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:33:54.308535+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "o1p/mrPCDQCVpMLEBweYbw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The end point where we can access that the data is <https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip> which is a ZIP archive containing a single entry, our CSV data. Let's do the first step."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:11:17.934852+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:15:30.712158+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ysl3orPCDQCYoBCsBweYbw=="
+				},
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\r(ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded."
 			},
 			{
 				"__type" : "textSnippet",
@@ -359,7 +430,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:04:30.966343+02:00"
+						"dateAndTimeString" : "2023-09-27T09:17:17.728475+02:00"
 					}
 				},
 				"uid" : {
@@ -369,7 +440,291 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "So there is a Date colum and a lot of currency columns, which are floating point numbers. Sometimes there is a N/A entry, we'll have to deal with that. Note also how there is a spurious and annoying comma at the end (this is actually an error). Let's use NeoCSVReader to look at the header/columns. Note the nil column at the end."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:16:11.632222+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:16:50.472006+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "AEP5s7PCDQCgR5caBweYbw=="
+				},
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcsvReader readHeader."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:17:31.255593+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:21:50.57626+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "NDm4uLPCDQChd8bTBweYbw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "We can easily solve that by ignoring the last bogus column. Although we can of course parse all record, we also want more than Strings, we want Dates and Floats. We do that by configuring the CSV reader. We are going to convert N/A to nil, which feels natural."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:20:22.146437+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:22:00.486285+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "4sbnwrPCDQCnTYDMBweYbw=="
+				},
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rcsvReader upToEnd."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:22:14.890708+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:27:55.564644+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "JSegybPCDQCps86sBweYbw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "We end up with 6300+ clean records. This is certainly useable but, as the article describes, we want a long format instead of a wide format. A so called melt operation makes that conversion. Instead of each dated record containing 42 currencies, we want a seoerate record for each currency, with just 3 fields: date, currency and position. We do that will some collection operations. We skip all the nil entries as well. "
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:28:04.803039+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:29:06.242373+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "S2N73rPCDQCzvMI2BweYbw=="
+				},
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rdataSet := csvReader upToEnd.\r\rdata := (dataSet flatCollect: [ :each | columns allButFirst collectWithIndex: [ :column :index |\r\t(each at: index + 1) ifNotNil: [ :value |\r\t\t{ each first. column asSymbol. value } ] ] ]) reject: #isNil."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:29:25.223504+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:30:10.807368+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "5YFG47PCDQC0FVy1BweYbw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Although we now have almost 200000 records, querying become easy. So, when was the Dollar highest against the Euro?"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:30:25.422421+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:30:49.689263+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "DxHd5rPCDQC2nnofBweYbw=="
+				},
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rdataSet := csvReader upToEnd.\r\rdata := (dataSet flatCollect: [ :each | columns allButFirst collectWithIndex: [ :column :index |\r\t(each at: index + 1) ifNotNil: [ :value |\r\t\t{ each first. column asSymbol. value } ] ] ]) reject: #isNil.\r\t\t\r((data select: [ :each | each second = #USD ]) sort: #third ascending) first first."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:35:53.053001+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-27T09:36:07.982293+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "l1Fk+rPCDQC3WjBaBweYbw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "At the time this article was written, the answer is"
 			}
 		]
 	},
