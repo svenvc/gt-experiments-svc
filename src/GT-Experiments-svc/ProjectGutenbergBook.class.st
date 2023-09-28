@@ -46,7 +46,24 @@ ProjectGutenbergBook class >> gtMostPopularViewFor: aView [
 		items: self mostPopular;
 		column: 'title' text: [ :book | book title ];
 		column: 'author' text: [ :book | book author ];
-		column: 'downloaded' text: [ :book | book hasFullText ]
+		column: 'downloaded' text: [ :book | book hasFullText ];
+		actionStencil: [ :aButton | 
+				GtSpotterDropdownButtonStencil new
+					object: self;
+					id: GtPharoSearchCodeButtonId;
+					asElement ]
+			tooltip: 'Search most popular books by title'
+]
+
+{ #category : #accessing }
+ProjectGutenbergBook class >> gtSearchMostPopularBooksFor: aSearch [
+	<gtSearch>
+	^ aSearch list
+		priority: 15;
+		title: 'Most popular books titles';
+		items: [ self mostPopular ];
+		itemName: [ :book | book title ];
+		filterBySubstring
 ]
 
 { #category : #'instance creation' }
@@ -143,6 +160,16 @@ ProjectGutenbergBook >> gtFullTextFor: aView [
 	^ aView textEditor
 		title: 'Full text';
 		text: self fullText
+]
+
+{ #category : #accessing }
+ProjectGutenbergBook >> gtSearchFullTextFor: aSearch [
+	<gtSearch>
+	^ aSearch list
+		priority: 15;
+		title: 'Full text lines';
+		items: [ self fullText ifNil: [ #() ] ifNotNil: [ :text | text lines ] ];
+		filterBySubstring
 ]
 
 { #category : #testing }
