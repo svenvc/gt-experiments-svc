@@ -396,14 +396,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:15:30.712158+02:00"
+						"dateAndTimeString" : "2023-09-29T12:10:06.581006+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "ysl3orPCDQCYoBCsBweYbw=="
 				},
-				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\r(ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded."
+				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded."
 			},
 			{
 				"__type" : "textSnippet",
@@ -467,14 +467,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:16:50.472006+02:00"
+						"dateAndTimeString" : "2023-09-29T12:10:28.205766+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "AEP5s7PCDQCgR5caBweYbw=="
 				},
-				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcsvReader readHeader."
+				"code" : "csvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader."
 			},
 			{
 				"__type" : "textSnippet",
@@ -538,14 +538,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:22:00.486285+02:00"
+						"dateAndTimeString" : "2023-09-29T12:11:56.69859+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "4sbnwrPCDQCnTYDMBweYbw=="
 				},
-				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rcsvReader upToEnd."
+				"code" : "column := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rdataSet := csvReader upToEnd."
 			},
 			{
 				"__type" : "textSnippet",
@@ -609,14 +609,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:29:06.242373+02:00"
+						"dateAndTimeString" : "2023-09-29T12:10:55.989283+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "S2N73rPCDQCzvMI2BweYbw=="
 				},
-				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rdataSet := csvReader upToEnd.\r\rdata := (dataSet flatCollect: [ :each | columns allButFirst collectWithIndex: [ :column :index |\r\t(each at: index + 1) ifNotNil: [ :value |\r\t\t{ each first. column asSymbol. value } ] ] ]) reject: #isNil."
+				"code" : "data := (dataSet flatCollect: [ :each | columns allButFirst collectWithIndex: [ :column :index |\r\t(each at: index + 1) ifNotNil: [ :value |\r\t\t{ each first. column asSymbol. value } ] ] ]) reject: #isNil."
 			},
 			{
 				"__type" : "textSnippet",
@@ -680,14 +680,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:30:49.689263+02:00"
+						"dateAndTimeString" : "2023-09-29T12:11:07.725268+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "DxHd5rPCDQC2nnofBweYbw=="
 				},
-				"code" : "zipData := ZnClient new get: 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip'.\r\rcsvData := (ZipArchive new readFrom: zipData readStream) members first contents utf8Decoded.\r\rcsvReader := NeoCSVReader on: csvData readStream.\r\rcolumns := csvReader readHeader.\r\rcolumn := columns allButLast.\r\rcsvReader addFieldConverter: [ :string | Date fromString: string ].\rcolumns size - 1 timesRepeat: [ \r\tcsvReader addFieldConverter: [ :string | NeoNumberParser parse: string ifFail: [ nil ] ] ].\r\rdataSet := csvReader upToEnd.\r\rdata := (dataSet flatCollect: [ :each | columns allButFirst collectWithIndex: [ :column :index |\r\t(each at: index + 1) ifNotNil: [ :value |\r\t\t{ each first. column asSymbol. value } ] ] ]) reject: #isNil.\r\t\t\r((data select: [ :each | each second = #USD ]) sort: #third ascending) first first."
+				"code" : "((data select: [ :each | each second = #USD ]) sort: #third ascending) first first."
 			},
 			{
 				"__type" : "textSnippet",
@@ -714,7 +714,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-27T09:36:10.751162+02:00"
+						"dateAndTimeString" : "2023-09-29T12:13:12.280033+02:00"
 					}
 				},
 				"uid" : {
@@ -724,7 +724,41 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "At the time this article was written, the answer is 26 October 2000."
+				"string" : "At the time this article was written, the answer is:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-29T12:12:34.87278+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-09-29T12:12:57.32925+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "k3J3Zt7CDQCqA6OxChx7uw=="
+				},
+				"code" : "Date year: 2000 month: 10 day: 26"
 			}
 		]
 	},
