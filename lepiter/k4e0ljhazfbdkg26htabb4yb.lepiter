@@ -66,7 +66,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-29T12:01:56.248808+02:00"
+						"dateAndTimeString" : "2023-09-29T14:52:09.348688+02:00"
 					}
 				},
 				"uid" : {
@@ -76,7 +76,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "First we create our start situation with a known string. "
+				"string" : "First we create our start situation with a known string containing some non-ASCII characters. "
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -137,7 +137,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-29T12:04:37.308531+02:00"
+						"dateAndTimeString" : "2023-09-29T14:53:30.862507+02:00"
 					}
 				},
 				"uid" : {
@@ -147,7 +147,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Encoding that using UTF16BE gives us our starting point. Inspect the resulting bytes to see that all common encodings (ASCII, Latin1, UTF8) fail to decode this less common format."
+				"string" : "Encoding that using UTF16BE gives us our starting point. Inspect the resulting bytes (Bytes tab) to see that all common encodings (ASCII, Latin1, UTF8) fail to decode this less common format. We do see some readable characters in de Hex dump though."
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -421,7 +421,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-29T12:08:08.362274+02:00"
+						"dateAndTimeString" : "2023-09-29T14:48:13.907077+02:00"
 					}
 				},
 				"uid" : {
@@ -431,41 +431,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The class ZnCharacterEncoder list all known encodings in a dedicated inspector tab."
-			},
-			{
-				"__type" : "pharoSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-29T12:07:40.123527+02:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-09-29T12:07:43.018086+02:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "u+3lVN7CDQClbXJlChx7uw=="
-				},
-				"code" : "ZnCharacterEncoder"
+				"string" : "The class {{gtClass:ZnCharacterEncoder}} list all known encoding identifiers in a dedicated Encodings inspector tab."
 			}
 		]
 	},
