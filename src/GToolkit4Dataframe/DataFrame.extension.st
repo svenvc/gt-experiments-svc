@@ -10,7 +10,8 @@ DataFrame >> gtViewColumnsFor: composite [
 		items: [ self columnNames ];
 		column: 'Position' text: [ :_ :position | position ];
 		column: 'Column' text: #yourself weight: 2;
-		column: 'Type' text: [ :column | self dataTypes at: column ]
+		column: 'Type' text: [ :column | self dataTypes at: column ];
+		send: [ :column | self column: column ]
 ]
 
 { #category : #'*GToolkit4Dataframe' }
@@ -20,16 +21,16 @@ DataFrame >> gtViewTableFor: composite [
 	self isEmpty ifTrue: [ ^ composite empty ].
 	columnedList := composite columnedList
 		title: 'Table';
-		items: [ self asArrayOfRowsWithName ];
+		items: [ self rows ];
 		priority: 30.
-	columnedList column: '#' text: [ :_ :nr | nr asRopedText foreground: Color gray ] weight: 1.
+	columnedList column: '#' text: [ :_ :index | index asRopedText foreground: Color gray ] weight: 1.
 	self rowNames = (1 to: self numberOfRows) asOrderedCollection
 		ifFalse: [
-			columnedList column: 'row name' text: [ :eachRow | eachRow at: 1 ] ].
-	self columnNames doWithIndex: [ :column :index | 
+			columnedList column: 'row name' text: [ :series | series name ] ].
+	self columnNames do: [ :column  | 
 		columnedList column: column do: [ :aColumn | 
 			aColumn
-				item: [ :eachRow | eachRow at: index + 1 ];
+				item: [ :series | series at: column ];
 				weight: 1 ] ].
 	^ columnedList
 ]
