@@ -52,7 +52,8 @@ ProjectGutenbergBook class >> gtMostPopularViewFor: aView [
 					object: self;
 					id: GtPharoSearchCodeButtonId;
 					asElement ]
-			tooltip: 'Search most popular books by title'
+			tooltip: 'Search most popular books by title';
+		actionUpdateButton
 ]
 
 { #category : #accessing }
@@ -129,6 +130,7 @@ ProjectGutenbergBook >> gtDetailsFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Details';
+		priority: 30;
 		items: [ {
 			('id' -> self id).
 			('title' -> self title).
@@ -137,7 +139,7 @@ ProjectGutenbergBook >> gtDetailsFor: aView [
 			('size' -> (self size ifNil: [ 'n/a' ])).
 			('line count' -> (self lineCount ifNil: [ 'n/a' ])) } ];
 		column: 'Key' text: #key;
-		column: 'Value' text: #value;
+		column: 'Value' text: #value weight: 3;
 		send: #value
 ]
 
@@ -159,7 +161,18 @@ ProjectGutenbergBook >> gtFullTextFor: aView [
 	self hasFullText ifFalse: [ ^ aView empty ].
 	^ aView textEditor
 		title: 'Full text';
+		priority: 35;
 		text: self fullText
+]
+
+{ #category : #accessing }
+ProjectGutenbergBook >> gtJSONMetaDataFor: composite [
+	<gtView>
+	^ composite forward
+		title: 'JSON meta data';
+		priority: 40;
+		object: [ self metaData ];
+		view: #gtJsonFor:
 ]
 
 { #category : #accessing }
@@ -199,8 +212,9 @@ ProjectGutenbergBook >> metaData: anObject [
 
 { #category : #accessing }
 ProjectGutenbergBook >> plainTextUrl [
-	#('text/plain' 'text/plain; charset=utf-8') do: [ :each |
-		self metaData formats at: each ifPresent: [ :url | ^ url ] ].
+	self metaData formats keysAndValuesDo: [ :mimeType :url |
+		(mimeType asZnMimeType matches: ZnMimeType textPlain)
+			ifTrue: [ ^ url ] ].
 	self  error: 'no plain text format found'
 ]
 
