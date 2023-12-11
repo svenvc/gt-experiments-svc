@@ -15,10 +15,36 @@ DataFrame >> gtViewColumnsFor: composite [
 ]
 
 { #category : #'*GToolkit4Dataframe' }
+DataFrame >> gtViewHeadFor: composite [
+	<gtView>
+	self isEmpty ifTrue: [ ^ composite empty ].
+	self numberOfRows <= 100 ifTrue: [ ^ composite empty ].
+	^ composite forward
+		title: 'Head';
+		priority: 31;
+		object: [ self head ];
+		view: #gtViewTableFor:
+]
+
+{ #category : #'*GToolkit4Dataframe' }
+DataFrame >> gtViewSummaryFor: composite [
+	<gtView>
+	self isEmpty ifNil: [ ^ composite empty ].
+	(self dataTypes values 
+		noneSatisfy: [ :dataType | dataType inheritsFrom: Number ]) ifTrue: [ ^ composite empty ].
+	^ composite forward
+		title: 'Summary';
+		priority: 40;
+		object: [ self summary ];
+		view: #gtViewTableFor:
+]
+
+{ #category : #'*GToolkit4Dataframe' }
 DataFrame >> gtViewTableFor: composite [
 	<gtView>
 	| columnedList |
 	self isEmpty ifTrue: [ ^ composite empty ].
+	self numberOfRows > 100 ifTrue: [ ^ composite empty ].
 	columnedList := composite columnedList
 		title: 'Table';
 		items: [ self rows ];
@@ -33,4 +59,16 @@ DataFrame >> gtViewTableFor: composite [
 				item: [ :series | series at: column ];
 				weight: 1 ] ].
 	^ columnedList
+]
+
+{ #category : #'*GToolkit4Dataframe' }
+DataFrame >> gtViewTailFor: composite [
+	<gtView>
+	self isEmpty ifTrue: [ ^ composite empty ].
+	self numberOfRows <= 100 ifTrue: [ ^ composite empty ].
+	^ composite forward
+		title: 'Tail';
+		priority: 32;
+		object: [ self tail ];
+		view: #gtViewTableFor:
 ]
