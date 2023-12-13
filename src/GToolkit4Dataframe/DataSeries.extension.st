@@ -21,7 +21,12 @@ DataSeries >> gtViewSeriesFor: composite [
 		title: 'Series';
 		priority: 35;
 		items: [ { #name->self name } , self associations ];
-		column: '#' text: [ :_ :position | position asRopedText foreground: Color gray ] weight: 1;
+		column: '#' 
+			text: [ :_ :position | 
+				position = 1
+					ifTrue: [ '' ]
+					ifFalse: [ (position - 1) asRopedText foreground: Color gray ] ]
+			weight: 1;
 		column: 'Key' text: #key weight: 2;
 		column: 'Value' text: #value weight: 3
 ]
